@@ -19,14 +19,23 @@ func MergeSort[T constraints.Ordered](list []T) []T {
 	return merge(left, right)
 }
 
-/* 
+/*
+Devide the unsorted list at midpoint into sublist
+Returns two sublists, left and right
 
+Takes overall O(log n) time
 */
 func split[T constraints.Ordered](list []T) ([]T, []T) {
 	midIndex := len(list) / 2
 	return list[:midIndex], list[midIndex:]
 }
 
+/*
+Merge and sort each element of two sublists
+Returns merged and sorted of two sublists
+
+Takes Overall O(n)
+*/
 func merge[T constraints.Ordered](left, right []T) []T {
 	var result []T
 	i := 0
